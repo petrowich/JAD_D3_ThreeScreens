@@ -10,7 +10,6 @@ import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         enableButton(editText, buttonA)
 
         buttonA.setOnClickListener {
-            val intent = Intent(applicationContext, BActivity::class.java).apply { putExtra("TextFromA", editText.text.toString()) }
+            val intent = Intent(this, BActivity::class.java).apply { putExtra("TextFromA", editText.text.toString()) }
             startActivity(intent)
         }
 
-        editText.addTextChangedListener(object : TextWatcher {
-
+        editText.addTextChangedListener(object : TextWatcher { //в интернетах пишут только про такой способ проверки изменения текстового поля
+            //ещё я видел способ, при котором не нужно переопрелять сразу все методы TextWatcherа, но я так и не понял, как его прикрутить в моём случае
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
 

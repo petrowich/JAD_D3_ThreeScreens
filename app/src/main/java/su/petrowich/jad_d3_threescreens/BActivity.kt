@@ -16,7 +16,7 @@ class BActivity : AppCompatActivity() {
 
         val buttonB = findViewById<Button>(R.id.buttonB)
         buttonB.setOnClickListener {
-            val intent = Intent(applicationContext, CActivity::class.java).apply { putExtra("TextFromA", textFromA) }
+            val intent = Intent(this, CActivity::class.java).apply { putExtra("TextFromA", textFromA) }
             startActivity(intent)
         }
     }
